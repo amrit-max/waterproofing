@@ -212,6 +212,7 @@ img {
     padding: 0 2rem;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 /* Button Styles */
@@ -359,6 +360,8 @@ body {
         padding: 0 1rem;
         width: 100%;
         box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
