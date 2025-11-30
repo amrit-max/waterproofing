@@ -22,6 +22,12 @@
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -190,6 +196,8 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Button Styles */
@@ -252,6 +260,14 @@ img {
 /* Smooth Scroll */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body, html {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Animations */
@@ -319,6 +335,14 @@ html {
 
     .section {
         padding: 3rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -329,6 +353,14 @@ html {
 
     .logo {
         font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 2rem 1rem;
     }
 }
 
