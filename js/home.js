@@ -145,5 +145,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Scroll down arrow functionality
+    const arrowDown = document.querySelector('.arrow-down');
+    if (arrowDown) {
+        arrowDown.addEventListener('click', function() {
+            const nextSection = document.querySelector('.about-preview');
+            if (nextSection) {
+                const offsetTop = nextSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
 
