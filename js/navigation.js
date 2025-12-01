@@ -73,5 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Floating WhatsApp button (global on all pages)
+    const existingWhatsapp = document.querySelector('.whatsapp-float');
+    if (!existingWhatsapp) {
+        const whatsappLink = document.createElement('a');
+        whatsappLink.href = 'https://wa.me/919082663527';
+        whatsappLink.className = 'whatsapp-float';
+        whatsappLink.target = '_blank';
+        whatsappLink.rel = 'noopener noreferrer';
+        whatsappLink.setAttribute('aria-label', 'Chat on WhatsApp: +91 9082663527');
+        whatsappLink.innerHTML = `
+            <img src="assets/whatsapp.png" alt="WhatsApp" class="whatsapp-icon" />
+            <span class="whatsapp-text">+91 9082663527</span>
+        `;
+        document.body.appendChild(whatsappLink);
+    }
 });
 

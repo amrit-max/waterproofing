@@ -114,15 +114,14 @@ img {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--color-white);
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
 }
 
-.logo span {
-    color: var(--color-yellow);
+.logo-image img {
+    height: 48px;
+    width: auto;
+    display: block;
 }
 
 .nav-menu {
@@ -164,6 +163,53 @@ img {
 
 .nav-link.active::after {
     width: 100%;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 1200;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebe57;
+    transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+/* Hide number visually but keep for screen readers if needed */
+.whatsapp-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 .mobile-menu-toggle {
@@ -370,16 +416,24 @@ body {
         padding: 0 1rem;
     }
 
-    .logo {
-        font-size: 1.2rem;
-    }
-
     .container {
         padding: 0 1rem;
     }
 
     .section {
         padding: 2rem 1rem;
+    }
+
+    .whatsapp-float {
+        padding: 0.6rem;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+    }
+
+    .whatsapp-text {
+        display: none;
     }
 }
 
