@@ -40,6 +40,46 @@
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
+/* Services Highlight */
+.services-highlight {
+    padding: 4rem 2rem 2rem;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.highlight-text {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+}
+
+.highlight-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.highlight-pill {
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-yellow);
+    color: var(--color-charcoal);
+    background-color: #fffdf0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.highlight-pill:hover {
+    background-color: var(--color-yellow);
+    color: var(--color-charcoal);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
 .service-detail {
     padding: 5rem 2rem;
     width: 100%;
