@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hero Carousel Functionality
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.carousel-dot');
-    const prevBtn = document.getElementById('heroPrevBtn');
-    const nextBtn = document.getElementById('heroNextBtn');
     let currentSlide = 0;
     let carouselInterval;
 
@@ -45,22 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(carouselInterval);
     }
 
-    // Button event listeners
-    if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-            nextSlide();
-            stopCarousel();
-            startCarousel(); // Restart auto-play
-        });
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
-            prevSlide();
-            stopCarousel();
-            startCarousel(); // Restart auto-play
-        });
-    }
+    // Carousel auto-plays without manual controls
 
     // Dot event listeners
     dots.forEach((dot, index) => {
@@ -159,6 +142,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+    }
+
+    // Typewriter effect for experience text
+    const typewriterText = document.getElementById('typewriter-text');
+    if (typewriterText) {
+        const text = "20+ Years of Experience";
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < text.length) {
+                typewriterText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100); // Adjust speed here (milliseconds per character)
+            }
+        }
+        
+        // Start typing after a short delay
+        setTimeout(typeWriter, 500);
     }
 });
 
