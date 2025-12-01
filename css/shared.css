@@ -97,6 +97,11 @@ img {
     transition: var(--transition);
 }
 
+/* Adjust navbar position on home page when announcement bar is present */
+body.home-page .navbar {
+    top: 42px;
+}
+
 .navbar.scrolled {
     padding: 0.5rem 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);

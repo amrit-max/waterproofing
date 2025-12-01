@@ -1,5 +1,46 @@
 /* Home Page Styles */
 
+/* Announcement Bar */
+.announcement-bar {
+    background-color: var(--color-yellow);
+    color: var(--color-charcoal);
+    padding: 0.6rem 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .announcement-content {
+        font-size: 0.75rem;
+        padding: 0 1rem;
+        white-space: normal;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .announcement-content {
+        font-size: 0.7rem;
+    }
+}
+
 .hero {
     position: relative;
     height: 100vh;
@@ -9,6 +50,8 @@
     overflow: hidden;
     width: 100%;
     max-width: 100vw;
+    padding-top: 130px;
+    box-sizing: border-box;
 }
 
 /* Hero Carousel */
@@ -800,6 +843,7 @@
     .hero {
         overflow-x: hidden;
         max-width: 100vw;
+        padding-top: 140px;
     }
 
     .solutions-title,
