@@ -65,6 +65,7 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: stretch;
 }
 
 .client-logo-card {
@@ -92,6 +93,14 @@
     font-size: 3.5rem;
     display: block;
     margin-bottom: 1rem;
+}
+
+.client-logo img {
+    max-width: 140px;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 1rem;
 }
 
 .client-logo h3 {
@@ -417,7 +426,7 @@
     }
 
     .clients-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
