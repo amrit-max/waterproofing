@@ -584,9 +584,53 @@
     padding: 5rem 2rem;
 }
 
+.reviews-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.rating-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: rgba(2, 71, 122, 0.05);
+    border: 1px solid rgba(2, 71, 122, 0.15);
+}
+
+.rating-score {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-steel-blue);
+    line-height: 1;
+}
+
+.rating-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rating-stars {
+    color: var(--color-yellow);
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    margin-bottom: 0.15rem;
+}
+
+.rating-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-gray);
+}
+
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -636,6 +680,61 @@
 .review-author span {
     color: var(--color-gray);
     font-size: 0.9rem;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-steel-blue);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.review-name {
+    font-weight: 600;
+    color: var(--color-charcoal);
+}
+
+.review-subtext {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+    margin-top: 0.15rem;
+}
+
+.reviews-more {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.reviews-more .btn-secondary {
+    font-weight: 700;
+    padding: 0.9rem 2.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-yellow), #ffe94a);
+    color: var(--color-charcoal);
+    border-color: transparent;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reviews-more .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    background: linear-gradient(135deg, #ffe94a, var(--color-yellow));
 }
 
 /* Contact Preview Section */
@@ -720,6 +819,10 @@
     }
 
     .solutions-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
