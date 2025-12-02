@@ -721,7 +721,7 @@
 
 .reviews-more .btn-secondary {
     font-weight: 700;
-    padding: 0.9rem 2.5rem;
+    padding: 0.9rem 2rem;
     border-radius: 999px;
     background: linear-gradient(135deg, var(--color-yellow), #ffe94a);
     color: var(--color-charcoal);
@@ -729,6 +729,11 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    white-space: normal;
 }
 
 .reviews-more .btn-secondary:hover {
@@ -897,6 +902,13 @@
 
     .solutions-nav {
         gap: 1rem;
+
+    .reviews-more .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+    }
     }
 
     .nav-tab {
