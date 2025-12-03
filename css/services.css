@@ -301,6 +301,93 @@
     margin-bottom: 0.3rem;
 }
 
+/* FAQ Section */
+.faq-section {
+    margin: 3rem 0;
+    width: 100%;
+}
+
+.faq-title {
+    font-size: 1.8rem;
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.faq-container {
+    background-color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.faq-question:hover {
+    background-color: #f9f9f9;
+}
+
+.faq-question span:first-child {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.faq-chevron {
+    font-size: 0.9rem;
+    color: #ff9800;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-yellow);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background-color: #fafafa;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 2rem 1.5rem 2rem;
+}
+
+.faq-answer p {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin: 0;
+    padding-top: 1rem;
+    font-size: 1rem;
+}
+
 .methods-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -487,6 +574,33 @@
     .cta-buttons .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    .faq-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .faq-question {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .faq-question span:first-child {
+        font-size: 0.95rem;
+        padding-right: 0.8rem;
+    }
+
+    .faq-chevron {
+        font-size: 0.8rem;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 1.5rem 1.2rem 1.5rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.9rem;
+        padding-top: 0.8rem;
     }
 }
 
