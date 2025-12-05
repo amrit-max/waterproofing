@@ -1,24 +1,14 @@
 // Services Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, revealOptions);
-
-    scrollRevealElements.forEach(element => {
-        revealObserver.observe(element);
+    // Scroll reveal animations disabled for services page
+    // Force all elements to be visible immediately
+    const allElements = document.querySelectorAll('.section, .section-title, .service-title, .service-header, .service-gallery-wrapper, .service-text, .scroll-reveal, .fade-in-up, .cta-content');
+    allElements.forEach(element => {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+        element.style.visibility = 'visible';
+        element.classList.add('revealed');
     });
 
     // Smooth scroll to service section if anchor link is present

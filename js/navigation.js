@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Global Scroll Reveal Animation System
+    // Check if we're on services page (skip animations for services page)
+    const isServicesPage = window.location.pathname.includes('services.html');
+    
     const initScrollReveal = () => {
         // Configuration for Intersection Observer
         const revealOptions = {
@@ -113,73 +116,81 @@ document.addEventListener('DOMContentLoaded', function() {
         }, revealOptions);
 
         // Auto-apply scroll reveal to common elements
-        const selectors = [
-            '.section',
-            '.section-title',
-            '.service-title',
-            '.faq-title',
-            '.service-card',
-            '.client-logo-card',
-            '.gallery-item',
-            '.review-card',
-            '.feature-card',
-            '.solution-card',
-            '.service-text',
-            '.service-gallery-wrapper',
-            '.scroll-reveal',
-            '.fade-in-up',
-            '.fade-in-left',
-            '.fade-in-right',
-            '.scale-in',
-            '.content-wrapper',
-            '.info-card',
-            '.method-item',
-            '.application-item',
-            '.faq-item',
-            '.process-list li',
-            '.benefits-list li'
-        ];
+        // Skip if on services page
+        
+        if (!isServicesPage) {
+            const selectors = [
+                '.section',
+                '.section-title',
+                '.service-title',
+                '.faq-title',
+                '.service-card',
+                '.client-logo-card',
+                '.gallery-item',
+                '.review-card',
+                '.feature-card',
+                '.solution-card',
+                '.service-text',
+                '.service-gallery-wrapper',
+                '.scroll-reveal',
+                '.fade-in-up',
+                '.fade-in-left',
+                '.fade-in-right',
+                '.scale-in',
+                '.content-wrapper',
+                '.info-card',
+                '.method-item',
+                '.application-item',
+                '.faq-item',
+                '.process-list li',
+                '.benefits-list li'
+            ];
 
-        selectors.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach((element, index) => {
-                // Add stagger delay for grid items
-                if (selector.includes('card') || selector.includes('item')) {
-                    const delay = (index % 4) * 0.1;
-                    element.style.transitionDelay = `${delay}s`;
+            selectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach((element, index) => {
+                    // Add stagger delay for grid items
+                    if (selector.includes('card') || selector.includes('item')) {
+                        const delay = (index % 4) * 0.1;
+                        element.style.transitionDelay = `${delay}s`;
+                    }
+                    revealObserver.observe(element);
+                });
+            });
+        }
+
+        // Also observe any element with data-animate attribute (skip on services page)
+        if (!isServicesPage) {
+            const customAnimateElements = document.querySelectorAll('[data-animate]');
+            customAnimateElements.forEach(element => {
+                const animationType = element.getAttribute('data-animate');
+                if (animationType) {
+                    element.classList.add(animationType);
                 }
                 revealObserver.observe(element);
             });
-        });
-
-        // Also observe any element with data-animate attribute
-        const customAnimateElements = document.querySelectorAll('[data-animate]');
-        customAnimateElements.forEach(element => {
-            const animationType = element.getAttribute('data-animate');
-            if (animationType) {
-                element.classList.add(animationType);
-            }
-            revealObserver.observe(element);
-        });
+        }
     };
 
     // Initialize scroll reveal animations
     initScrollReveal();
 
-    // Reveal elements that are already in viewport on page load
-    const revealVisibleOnLoad = () => {
-        const elements = document.querySelectorAll('.section, .section-title, .scroll-reveal, .fade-in-up');
-        elements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            if (isVisible) {
-                element.classList.add('revealed');
-            }
-        });
-    };
+    // Reveal elements that are already in viewport on page load (skip on services page)
+    if (!isServicesPage) {
+        const revealVisibleOnLoad = () => {
+            const elements = document.querySelectorAll('.section, .section-title, .scroll-reveal, .fade-in-up');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (isVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        };
 
-    // Reveal visible elements after a short delay
-    setTimeout(revealVisibleOnLoad, 100);
+        // Reveal visible elements after a short delay
+        setTimeout(revealVisibleOnLoad, 100);
+    }
 
     // Re-initialize on dynamic content load (if needed)
     const observer = new MutationObserver(() => {
