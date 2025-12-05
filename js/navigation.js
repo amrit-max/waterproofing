@@ -89,5 +89,112 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.body.appendChild(whatsappLink);
     }
+
+    // Global Scroll Reveal Animation System
+    const initScrollReveal = () => {
+        // Configuration for Intersection Observer
+        const revealOptions = {
+            threshold: 0.15, // Trigger when 15% of element is visible
+            rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+        };
+
+        // Create observer for scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Optional: stop observing after reveal for performance
+                    // revealObserver.unobserve(entry.target);
+                } else {
+                    // Optional: remove class when out of view for repeat animations
+                    // entry.target.classList.remove('revealed');
+                }
+            });
+        }, revealOptions);
+
+        // Auto-apply scroll reveal to common elements
+        const selectors = [
+            '.section',
+            '.section-title',
+            '.service-title',
+            '.faq-title',
+            '.service-card',
+            '.client-logo-card',
+            '.gallery-item',
+            '.review-card',
+            '.feature-card',
+            '.solution-card',
+            '.service-text',
+            '.service-gallery-wrapper',
+            '.scroll-reveal',
+            '.fade-in-up',
+            '.fade-in-left',
+            '.fade-in-right',
+            '.scale-in',
+            '.content-wrapper',
+            '.info-card',
+            '.method-item',
+            '.application-item',
+            '.faq-item',
+            '.process-list li',
+            '.benefits-list li'
+        ];
+
+        selectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((element, index) => {
+                // Add stagger delay for grid items
+                if (selector.includes('card') || selector.includes('item')) {
+                    const delay = (index % 4) * 0.1;
+                    element.style.transitionDelay = `${delay}s`;
+                }
+                revealObserver.observe(element);
+            });
+        });
+
+        // Also observe any element with data-animate attribute
+        const customAnimateElements = document.querySelectorAll('[data-animate]');
+        customAnimateElements.forEach(element => {
+            const animationType = element.getAttribute('data-animate');
+            if (animationType) {
+                element.classList.add(animationType);
+            }
+            revealObserver.observe(element);
+        });
+    };
+
+    // Initialize scroll reveal animations
+    initScrollReveal();
+
+    // Reveal elements that are already in viewport on page load
+    const revealVisibleOnLoad = () => {
+        const elements = document.querySelectorAll('.section, .section-title, .scroll-reveal, .fade-in-up');
+        elements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                element.classList.add('revealed');
+            }
+        });
+    };
+
+    // Reveal visible elements after a short delay
+    setTimeout(revealVisibleOnLoad, 100);
+
+    // Re-initialize on dynamic content load (if needed)
+    const observer = new MutationObserver(() => {
+        // Re-run if new content is added dynamically
+        const newElements = document.querySelectorAll('.section:not(.revealed)');
+        if (newElements.length > 0) {
+            initScrollReveal();
+        }
+    });
+
+    // Observe body for new elements (with debounce)
+    let timeout;
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });
 

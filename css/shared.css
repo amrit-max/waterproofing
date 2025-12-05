@@ -420,6 +420,169 @@ body {
     animation: fadeIn 0.8s ease-out;
 }
 
+/* Scroll Reveal Animations */
+.scroll-reveal,
+.fade-in-up,
+.fade-in-left,
+.fade-in-right,
+.scale-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal {
+    transform: translateY(50px);
+}
+
+.fade-in-up {
+    transform: translateY(40px);
+}
+
+.fade-in-left {
+    transform: translateX(-40px);
+}
+
+.fade-in-right {
+    transform: translateX(40px);
+}
+
+.scale-in {
+    transform: scale(0.9);
+}
+
+/* Revealed state - elements visible when scrolled into view */
+.scroll-reveal.revealed,
+.fade-in-up.revealed,
+.fade-in-left.revealed,
+.fade-in-right.revealed,
+.scale-in.revealed {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Auto-animate sections on scroll */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Auto-animate headings */
+.section-title,
+.service-title,
+.faq-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.section-title.revealed,
+.service-title.revealed,
+.faq-title.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Auto-animate cards and grid items */
+.service-card,
+.client-logo-card,
+.gallery-item,
+.review-card,
+.feature-card,
+.solution-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.service-card.revealed,
+.client-logo-card.revealed,
+.gallery-item.revealed,
+.review-card.revealed,
+.feature-card.revealed,
+.solution-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for grid items */
+.service-card:nth-child(1) { transition-delay: 0.1s; }
+.service-card:nth-child(2) { transition-delay: 0.2s; }
+.service-card:nth-child(3) { transition-delay: 0.3s; }
+.service-card:nth-child(4) { transition-delay: 0.4s; }
+
+.feature-card:nth-child(1) { transition-delay: 0.1s; }
+.feature-card:nth-child(2) { transition-delay: 0.2s; }
+.feature-card:nth-child(3) { transition-delay: 0.3s; }
+.feature-card:nth-child(4) { transition-delay: 0.4s; }
+
+.client-logo-card:nth-child(odd) { transition-delay: 0.1s; }
+.client-logo-card:nth-child(even) { transition-delay: 0.2s; }
+
+/* Scroll Indicator Animation */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator .arrow-down {
+    font-size: 2rem;
+    color: var(--color-yellow);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes bounceArrow {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 0.7;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Performance optimization - will-change for animated elements */
+.section,
+.service-card,
+.client-logo-card,
+.gallery-item,
+.scroll-reveal {
+    will-change: transform, opacity;
+}
+
+.section.revealed,
+.service-card.revealed,
+.client-logo-card.revealed,
+.gallery-item.revealed,
+.scroll-reveal.revealed {
+    will-change: auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .mobile-menu-toggle {
