@@ -51,5 +51,46 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('active');
         });
     });
+
+    // Image Gallery Lightbox Modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const closeModal = document.querySelector('.modal-close');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+
+    // Open modal when gallery image is clicked
+    galleryItems.forEach(img => {
+        img.addEventListener('click', function() {
+            modal.classList.add('show');
+            modalImg.src = this.getAttribute('data-full');
+            modalCaption.textContent = this.alt;
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close modal when close button is clicked
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    }
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    });
 });
 
