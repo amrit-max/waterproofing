@@ -312,6 +312,16 @@
 .feature-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.feature-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .feature-card h3 {
