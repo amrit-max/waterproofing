@@ -622,17 +622,20 @@ html {
     .nav-menu {
         position: fixed;
         top: 70px;
-        left: -100%;
+        left: 0;
         width: 100%;
         background-color: var(--color-steel-blue);
         flex-direction: column;
         padding: 2rem;
-        transition: var(--transition);
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s var(--timing-smooth), opacity 0.3s var(--timing-smooth);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .nav-menu.active {
-        left: 0;
+        transform: translateX(0);
+        opacity: 1;
     }
 
     h1 {
