@@ -13,7 +13,9 @@
     --color-white: #FFFFFF;
     --color-off-white: #FFFBE6;
     --color-gray: #6c757d;
-    --transition: all 0.3s ease;
+    --timing-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition: all 0.25s var(--timing-smooth);
+    --transition-fast: all 0.2s var(--timing-smooth);
 }
 
 * {
@@ -431,7 +433,8 @@ body {
 .fade-in-right,
 .scale-in {
     opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.65s var(--timing-smooth), transform 0.65s var(--timing-smooth);
+    will-change: opacity, transform;
 }
 
 .scroll-reveal {
@@ -443,15 +446,15 @@ body {
 }
 
 .fade-in-left {
-    transform: translateX(-40px);
+    transform: translateX(-30px);
 }
 
 .fade-in-right {
-    transform: translateX(40px);
+    transform: translateX(30px);
 }
 
 .scale-in {
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 /* Revealed state - elements visible when scrolled into view */
@@ -462,6 +465,29 @@ body {
 .scale-in.revealed {
     opacity: 1;
     transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Smooth transitions for interactive elements */
+.section,
+.service-card,
+.client-logo-card,
+.gallery-item,
+.scroll-reveal,
+.fade-in-up,
+.fade-in-left,
+.fade-in-right,
+.scale-in,
+.btn,
+.btn-secondary,
+.nav-link,
+.solution-card,
+.feature-card,
+.review-card,
+.info-card,
+.value-card {
+    transition-timing-function: var(--timing-smooth);
+    transition-duration: 0.25s;
+    will-change: transform, opacity, box-shadow;
 }
 
 /* Auto-animate sections on scroll */
