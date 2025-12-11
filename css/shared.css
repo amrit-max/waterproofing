@@ -39,11 +39,15 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--color-charcoal);
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
     position: relative;
+}
+
+body.home-page {
+    background: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6 {

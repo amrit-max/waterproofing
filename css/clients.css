@@ -41,7 +41,25 @@
 }
 
 .clients-section {
-    background-color: var(--color-white);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    position: relative;
+}
+
+.clients-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(252, 224, 6, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(2, 71, 122, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.clients-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .section-header {
@@ -69,20 +87,21 @@
 }
 
 .client-logo-card {
-    background-color: var(--color-light-beige);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
     padding: 2.5rem 2rem;
     border-radius: 15px;
     text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 2px solid rgba(2, 71, 122, 0.08);
     cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 .client-logo-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px rgba(252, 224, 6, 0.25);
     border-color: var(--color-yellow);
-    background-color: var(--color-white);
+    background: linear-gradient(135deg, #ffffff 0%, #fffbe6 50%, #ffffff 100%);
 }
 
 .client-logo {

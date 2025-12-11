@@ -54,6 +54,18 @@
     box-sizing: border-box;
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(2, 71, 122, 0.3) 0%, rgba(1, 49, 82, 0.4) 50%, rgba(2, 71, 122, 0.3) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* Hero Carousel */
 .hero-carousel {
     position: absolute;
@@ -124,7 +136,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(2, 71, 122, 0.5);
+    background: linear-gradient(to bottom, rgba(2, 71, 122, 0.4), rgba(1, 49, 82, 0.6));
     z-index: 1;
 }
 
@@ -267,9 +279,26 @@
 
 /* About Preview Section */
 .about-preview {
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
     width: 100%;
     overflow-x: hidden;
+    position: relative;
+}
+
+.about-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(252, 224, 6, 0.03) 0%, transparent 50%, rgba(2, 71, 122, 0.03) 100%);
+    pointer-events: none;
+}
+
+.about-preview .container {
+    position: relative;
+    z-index: 1;
 }
 
 .about-preview .container {
@@ -292,21 +321,23 @@
 }
 
 .feature-card {
-    background-color: var(--color-light-beige);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 2px solid rgba(2, 71, 122, 0.08);
     width: 100%;
     box-sizing: border-box;
     margin: 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(252, 224, 6, 0.25);
     border-color: var(--color-yellow);
+    background: linear-gradient(135deg, #ffffff 0%, #fffbe6 50%, #ffffff 100%);
 }
 
 .feature-icon {
@@ -335,11 +366,29 @@
 
 /* Waterproofing Solutions Section */
 .waterproofing-solutions {
-    background-color: var(--color-white);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 30%, #e9ecef 70%, #ffffff 100%);
     padding: 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
+    position: relative;
+}
+
+.waterproofing-solutions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top left, rgba(2, 71, 122, 0.06) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom right, rgba(252, 224, 6, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.waterproofing-solutions .container {
+    position: relative;
+    z-index: 1;
 }
 
 .solutions-title {
@@ -409,7 +458,7 @@
 }
 
 .solution-card {
-    background-color: var(--color-white);
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -419,11 +468,14 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    border: 1px solid rgba(2, 71, 122, 0.05);
 }
 
 .solution-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 35px rgba(2, 71, 122, 0.2);
+    border-color: rgba(252, 224, 6, 0.3);
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
 }
 
 .solution-image {
@@ -470,11 +522,28 @@
 
 /* Waterproofing Info Section */
 .waterproofing-info {
-    background-color: var(--color-light-beige);
+    background: linear-gradient(135deg, #fffbe6 0%, #ffffff 30%, #f8f9fa 70%, #fffbe6 100%);
     padding: 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
+    position: relative;
+}
+
+.waterproofing-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(252, 224, 6, 0.08) 0%, transparent 30%, transparent 70%, rgba(2, 71, 122, 0.08) 100%);
+    pointer-events: none;
+}
+
+.waterproofing-info .container {
+    position: relative;
+    z-index: 1;
 }
 
 .info-title {
@@ -512,7 +581,25 @@
 
 /* Services Preview Section */
 .services-preview {
-    background-color: var(--color-light-beige);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #ffffff 100%);
+    position: relative;
+}
+
+.services-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(252, 224, 6, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(2, 71, 122, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.services-preview .container {
+    position: relative;
+    z-index: 1;
 }
 
 .services-grid {
@@ -523,7 +610,7 @@
 }
 
 .service-card {
-    background-color: var(--color-white);
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
     padding: 0;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -531,11 +618,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(2, 71, 122, 0.05);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(2, 71, 122, 0.2);
+    border-color: rgba(252, 224, 6, 0.3);
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
 }
 
 .service-card-image {
@@ -590,8 +680,26 @@
 
 /* Reviews Section */
 .reviews-section {
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 30%, #ffffff 60%, #e9ecef 100%);
     padding: 5rem 2rem;
+    position: relative;
+}
+
+.reviews-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(252, 224, 6, 0.04) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(2, 71, 122, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.reviews-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .reviews-header {
@@ -646,18 +754,19 @@
 }
 
 .review-card {
-    background-color: var(--color-light-beige);
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 2px solid rgba(2, 71, 122, 0.08);
 }
 
 .review-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 35px rgba(252, 224, 6, 0.25);
     border-color: var(--color-yellow);
+    background: linear-gradient(135deg, #ffffff 0%, #fffbe6 50%, #ffffff 100%);
 }
 
 .review-stars {
